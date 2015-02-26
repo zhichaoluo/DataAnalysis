@@ -1,0 +1,434 @@
+---
+title: " Data Analysis Using R: Introduction"
+author: 
+- 罗智超
+documentclass: ctexart
+output:
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+    number_sections: yes
+    template: !expr rticles::ctex_template()
+    toc: no
+classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
+---
+
+newkey
+# 联系方式
+
+
+- 姓名: 罗智超(Rokia.org)
+
+- 邮件: zhichao.luo@gmail.com
+
+- QQ: 1814347
+
+- QQ群:
+
+- 博客：http://rokia.org
+
+- Git：http://www.github.com/zhichaoluo/DataAnalysis/
+
+- 课件：http://pan.baidu.com/s/1qWv6NY8 密码: lt3l
+
+- 问卷：
+
+
+$\pagebreak$
+
+
+# 注意事项
+
+- 为兴趣、热情而不是为考试而学习
+
+- 将手机关闭或者调整成静音状态
+
+- 尽量坐在前排，如果你想学习
+
+$\pagebreak$
+
+# 课程将给你什么？
+
+- 一起度过一学期**痛并快乐**的学习时光
+
+- 增强你的简历
+
+- 增强你的动手处理和分析数据的能力
+
+- 掌握一门将来可能赖以生存的技能
+
+- 掌握常用的统计（数据科学）模型和方法
+
+- 以上的收获将基于你的坚持与付出
+$\pagebreak$
+
+# 课程教材
+
+- R In Action, Data Analysis and Graphics with R
+
+- ggplot2: Elegant Graphics for Data Analysis by Hadley Wickham
+
+
+$\pagebreak$
+
+
+# 辅助阅读材料
+
+- The Lady Tasting Tea show Statistics Revolutionized Science in the Twentieth Century 
+
+- Statistics: From Data to Evidence by Xizhi WU
+
+- Statistics: With the application of R by Xizhi WU
+
+- Data Manipulation With R by Phil Spector
+
+- An Introduction to R by Bill Venables & David Smith
+
+- R for Programmers by Norman Matloff
+$\pagebreak$
+
+
+# 课程主要大纲
+
+- R语言基础
+
+- 数据处理
+
+-- 数据获取
+
+-- 数据整理
+
+- 数据分析方法
+
+-- 描述统计分析
+
+-- 回归分析
+
+-- 方差分析
+
+-- 重抽样与自助法
+
+-- 广义线性模型
+
+-- 主成分和因子分析
+
+-- 贝叶斯分类器
+
+
+- 数据可视化
+
+-- 基础绘图
+
+-- 中级绘图
+
+-- 高级绘图
+
+-- 交互式绘图
+
+$\pagebreak$
+
+
+# 前修知识
+
+- 统计学原理
+
+- 计算机一、二级
+
+$\pagebreak$
+
+
+# 推荐网站
+
+- http://www.rokia.org/
+
+- http://library.xmu.edu.cn/
+
+- http://www.pinggu.org/
+
+- http://COS.NAME/
+
+- http://Coursera.org/
+
+- http://www.jstatsoft.org/
+
+- http://www.r-bloggers.com/
+
+- http://www.stackoverflow.com/
+
+- http://51qiangda.com/
+
+- http://ctex.org/
+
+- http://www.kaggle.com/
+
+- http://www.kdnuggets.com/
+
+$\pagebreak$
+
+
+# 推荐软件
+
+- Adobe Acrobat Professional
+
+- CNKI E-Learning
+
+- GIT
+
+- RStudio/R
+
+- UltraEdit
+
+$\pagebreak$
+
+# 和数据有关的一些背景知识
+
+##数据分析如烹小鲜
+
+
+Step      | Data Analysis           | Cooking
+-----------|------------------------ | ------------------------
+1 | Data, Software, Model   | Raw Material, Kitchenware, cookbook
+2 | Define the research question | Decide which dish to eat
+3 | Collect Data | Shopping
+4 | Data Cleaning | Cleaning
+5 | Data Preparation | Chopping
+6 | Modeling with theory and data | Cooking with cookbook
+7 | Hypothesis Test | Taste
+8 | Report | Decoration
+
+最主要的差别是煮完菜要洗碗
+
+
+![Jiro 1][1]
+
+[1]:image/xiaoye01.png 
+
+
+![Jiro 2][2]
+
+[2]:image/xiaoye02.png 
+
+
+![Jiro 3][3]
+
+[3]:image/xiaoye03.png 
+
+
+![Jiro 4][4]
+
+[4]:image/xiaoye04.png 
+
+
+![Jiro 5][5]
+
+[5]:image/xiaoye05.png 
+
+
+$\pagebreak$
+
+## 数据分析的三项基本技能
+
+- 数据操作能力
+
+- 统计编程及绘图能力
+
+- 统计理论及业务经验
+
+$\pagebreak$
+
+## 统计学VS数据分析VS数据科学
+
+- 统计学
+
+收集、分析、展示和解释数据的科学。（吴喜之）
+
+- 数理统计学
+
+数理统计学是数学的一个分支。它的任务是研究怎样用有效的方法去收集和使用带随机性影响的数据。（陈希孺）
+
+- 数据分析
+
+数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程（百度百科）
+
+$\pagebreak$
+
+- 数据科学家
+
+数据科学家是指能采用科学方法、运用数据挖掘工具对复杂多量的数字、符号、文字、网址、音频或视频等信息进行数字化重现与认识，并能寻找新的数据洞察的工程师或专家(不同于统计学家或分析师)。一个优秀的数据科学家需要具备的素质有：懂数据采集、懂数学算法、懂数学软件、懂数据分析、懂预测分析、懂市场应用、懂决策分析等。（百度百科）
+
+一个数据科学家不能只擅长数字(这种人被称为统计学家或分析师)，也要能够理解业务：什么样的数据或结果才是有参考性的;能够找到新的数据集并为其创造新产品;然后能够让CEO们理解这一切。这是一个艰巨的任务，这个世界上这类人是很少的。作为顶尖的数据科学家，不要求他们对环境做出什么积极的改变，但是需要他们尝试做一些真正先进的东西，帮助大家更好的解决业务上的问题。
+
+$\pagebreak$
+
+- 数据科学家的六种能力：
+1.对数据的提取与综合能力；
+2.统计分析能力；
+3.数据洞察与信息挖掘能力；
+4.开发软件能力；
+5.网络编程能力；
+6.数据的可视化表示能力。
+
+- 数据科学家涉及学科：
+1.计算机科学：数据获取、数据解析、数据存放、和数据安全
+2.数理统计学：数据分析、数据过滤、数据挖掘、和数据优化
+3.图形设计学：显示数据结果，比如将数据表达成三维图形，以便更好地理解和利用
+4.人机交互学：在用户和数据之间建立有机联系，使得人对数据的使用更方便
+
+$\pagebreak$
+
+![Data Science Venn Diagram][0]
+
+[0]: image/Data_Science_Venn_Diagram.png 
+
+
+$\pagebreak$
+
+
+## 真实数据
+
+- “脏”数据
+
+-- 格式不规范
+
+-- 缺失值
+
+-- 错误数据
+
+-- 异常值
+
+- 格式不规范
+
+![Dirty Data 1][6]
+
+[6]:image/dirtydata01.png 
+
+
+![Dirty Data 2][7]
+
+[7]:image/dirtydata02.png 
+
+
+
+$\pagebreak$
+
+
+## Anscombe Data List
+
+```{r Anscombe Data List,echo=FALSE}
+anscombe
+
+```
+
+- Anscombe Data Mean 
+
+```{r anscombe mean, echo=FALSE}
+sapply(anscombe,mean)
+```
+
+- Anscombe Data Variance 
+
+```{r anscombe var, echo=FALSE}
+sapply(anscombe,var)
+```
+
+
+- Anscombe Data Plot
+
+![Anscombe data plot][8]
+
+[8]:image/anscombeplot.png 
+
+$\pagebreak$
+
+
+
+## 辛普森悖论
+
+- 辛普森悖论（Simpson's Paradox）亦有人译为辛普森诡论，为英国统计学家E.H.辛普森（E.H.Simpson）于1951年提出的悖论，即在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，却可能导致相反的结论。
+
+- 辛普森悖论就像是欲比赛100场篮球以总胜率评价好坏，于是有人专找高手挑战20 场而胜1场，另外80场找平手挑战而胜40场，结果胜率41%，另一人则专挑高手挑战80场而胜8场，而剩下20场平手打个全胜，结果胜率为28%，比 41%小很多，但仔细观察挑战对象，后者明显较有实力。简单的将分组资料相加汇总，是不一定能反映真实情况的。
+
+
+
+![Simpson's Paradox Graphic][9]
+
+[9]:image/simpsonparadox.png 
+
+$\pagebreak$
+
+## 数据可视化
+
+数据可视化在数据分析过程中起到非常核心的作用，并且随着交互式数据可视化工具的发展，其作用将更加明显。
+
+- 你最常用的图表
+
+![你最常用的图表][15]
+
+- Social Network Map
+
+![datavisual1][10]
+
+[10]:image/datavisual1.png 
+
+- When Bots Attack
+
+- Green: Attack points; Blue: Hackers; White: Target Sample; Red: Target
+
+![datavisual2][11]
+
+[11]:image/datavisual2.jpg
+
+- Data Visualization Website
+
+-- [Economist Graphic Detail](http://www.economist.com/blogs/graphicdetail/)
+
+-- [Color Schemer](http://www.colorschemer.com/)
+
+
+- Economist Graph Detail
+
+![Economist 1][12]
+
+[12]:image/economist1.png
+
+
+
+- Economist Graph Detail
+
+![Economist 2][13]
+
+[13]:image/economist2.png
+
+
+- Data Visualization Chart
+
+-- Apple Products Timeline
+
+![apple][14]
+
+[14]:image/imac.png
+
+
+[15]:image/yourgraphic.png
+
+
+$\pagebreak$
+
+# 课后练习
+
+- 填写课程调查问卷
+
+- 登陆QQ群
+
+- 安装课程要求的软件
+
+- 下载课件及相关教材
+
+$\pagebreak$
+
+
+# 每周“大牛”
+
+- Sir Ronald Aylmer Fisher FRS (1890-1962) was an English statistician, evolutionary biologist, geneticist, and eugenicist. Fisher is known as one of the chief architects of the neo-Darwinian synthesis, for his important contributions to statistics, including the analysis of variance (ANOVA), method of maximum likelihood, fiducial inference, and the derivation of various sampling distributions, and for being one of the three principal founders of population genetics. Anders Hald called him "a genius who almost single-handedly created the foundations for modern statistical science", while Richard Dawkins named him "the greatest biologist since Darwin".
+
+
