@@ -13,7 +13,6 @@ output:
 classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 ---
 
-newkey
 # 联系方式
 
 
@@ -30,12 +29,6 @@ newkey
 - Git：http://www.github.com/zhichaoluo/DataAnalysis/
 
 - 课件：http://pan.baidu.com/s/1qWv6NY8 密码: lt3l
-
-- 问卷：
-
-
-
-
 
 # 注意事项
 
@@ -61,16 +54,13 @@ newkey
 
 - 以上的收获将基于你的坚持与付出
 
+注：本学期的课件相比之前几乎全部重新编写，加强以真实项目训练为导向，提升学生动手能力和独立解决问题能力，而不是单纯的知识点学习。
 
 # 课程教材
 
 - R In Action, Data Analysis and Graphics with R
 
 - ggplot2: Elegant Graphics for Data Analysis by Hadley Wickham
-
-
-
-
 
 # 辅助阅读材料
 
@@ -126,8 +116,6 @@ newkey
 -- 交互式绘图
 
 
-
-
 # 前修知识
 
 - 统计学原理
@@ -172,6 +160,8 @@ newkey
 
 - CNKI E-Learning
 
+- CTEX
+
 - GIT
 
 - RStudio/R
@@ -182,7 +172,17 @@ newkey
 
 # 和数据有关的一些背景知识
 
-##数据分析如烹小鲜
+#数据分析的重要性
+
+- 几乎所有科学研究都要涉及数据分析
+
+- 几乎所有文章发表都需要涉及数据分析
+
+- 熟练掌握数据分析技能会使你在工作学习中成为“香馍馍”
+
+- 养成数据分析思维
+
+#数据分析如烹小鲜
 
 
 Step      | Data Analysis           | Cooking
@@ -198,26 +198,31 @@ Step      | Data Analysis           | Cooking
 
 最主要的差别是煮完菜要洗碗
 
+#寿司之神-小野二郎
 
+追求极致的工匠精神
+
+#
 ![Jiro 1][1]
 
 [1]:image/xiaoye01.png 
 
-
+#
 ![Jiro 2][2]
 
 [2]:image/xiaoye02.png 
 
-
+#
 ![Jiro 3][3]
 
 [3]:image/xiaoye03.png 
 
-
+#
 ![Jiro 4][4]
 
 [4]:image/xiaoye04.png 
 
+#
 
 ![Jiro 5][5]
 
@@ -226,17 +231,17 @@ Step      | Data Analysis           | Cooking
 
 
 
-## 数据分析的三项基本技能
+# 数据分析的三项基本技能
 
 - 数据操作能力
 
 - 统计编程及绘图能力
 
-- 统计理论及业务经验
+- 统计理论及业务理解能力
 
 
 
-## 统计学VS数据分析VS数据科学
+# 统计学VS数据分析VS数据科学
 
 - 统计学
 
@@ -252,7 +257,7 @@ Step      | Data Analysis           | Cooking
 
 
 
-- 数据科学家
+# 数据科学家
 
 数据科学家是指能采用科学方法、运用数据挖掘工具对复杂多量的数字、符号、文字、网址、音频或视频等信息进行数字化重现与认识，并能寻找新的数据洞察的工程师或专家(不同于统计学家或分析师)。一个优秀的数据科学家需要具备的素质有：懂数据采集、懂数学算法、懂数学软件、懂数据分析、懂预测分析、懂市场应用、懂决策分析等。（百度百科）
 
@@ -260,31 +265,36 @@ Step      | Data Analysis           | Cooking
 
 
 
-- 数据科学家的六种能力：
+# 数据科学家的六种能力：
+
 1.对数据的提取与综合能力；
+
 2.统计分析能力；
+
 3.数据洞察与信息挖掘能力；
+
 4.开发软件能力；
+
 5.网络编程能力；
+
 6.数据的可视化表示能力。
 
-- 数据科学家涉及学科：
+# 数据科学家涉及学科：
+
 1.计算机科学：数据获取、数据解析、数据存放、和数据安全
+
 2.数理统计学：数据分析、数据过滤、数据挖掘、和数据优化
+
 3.图形设计学：显示数据结果，比如将数据表达成三维图形，以便更好地理解和利用
 4.人机交互学：在用户和数据之间建立有机联系，使得人对数据的使用更方便
 
 
-
+# Data Science Venn Diagram
 ![Data Science Venn Diagram][0]
 
 [0]: image/Data_Science_Venn_Diagram.png 
 
-
-
-
-
-## 真实数据
+# 真实数据
 
 - “脏”数据
 
@@ -298,41 +308,38 @@ Step      | Data Analysis           | Cooking
 
 - 格式不规范
 
+# Dirty Data
+
 ![Dirty Data 1][6]
 
 [6]:image/dirtydata01.png 
 
-
+#
 ![Dirty Data 2][7]
 
 [7]:image/dirtydata02.png 
 
-
-
-
-
-
-## Anscombe Data List
+# Anscombe Data List
 
 ```{r Anscombe Data List,echo=FALSE}
 anscombe
 
 ```
 
-- Anscombe Data Mean 
+# Anscombe Data Mean 
 
 ```{r anscombe mean, echo=FALSE}
 sapply(anscombe,mean)
 ```
 
-- Anscombe Data Variance 
+# Anscombe Data Variance 
 
 ```{r anscombe var, echo=FALSE}
 sapply(anscombe,var)
 ```
 
 
-- Anscombe Data Plot
+# Anscombe Data Plot
 
 ![Anscombe data plot][8]
 
@@ -342,35 +349,35 @@ sapply(anscombe,var)
 
 
 
-## 辛普森悖论
+# 辛普森悖论
 
 - 辛普森悖论（Simpson's Paradox）亦有人译为辛普森诡论，为英国统计学家E.H.辛普森（E.H.Simpson）于1951年提出的悖论，即在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，却可能导致相反的结论。
 
 - 辛普森悖论就像是欲比赛100场篮球以总胜率评价好坏，于是有人专找高手挑战20 场而胜1场，另外80场找平手挑战而胜40场，结果胜率41%，另一人则专挑高手挑战80场而胜8场，而剩下20场平手打个全胜，结果胜率为28%，比 41%小很多，但仔细观察挑战对象，后者明显较有实力。简单的将分组资料相加汇总，是不一定能反映真实情况的。
 
 
-
+#
 ![Simpson's Paradox Graphic][9]
 
 [9]:image/simpsonparadox.png 
 
 
 
-## 数据可视化
+# 数据可视化
 
 数据可视化在数据分析过程中起到非常核心的作用，并且随着交互式数据可视化工具的发展，其作用将更加明显。
 
-- 你最常用的图表
+# 你最常用的图表
 
 ![你最常用的图表][15]
 
-- Social Network Map
+# Social Network Map
 
 ![datavisual1][10]
 
 [10]:image/datavisual1.png 
 
-- When Bots Attack
+# When Bots Attack
 
 - Green: Attack points; Blue: Hackers; White: Target Sample; Red: Target
 
@@ -378,7 +385,7 @@ sapply(anscombe,var)
 
 [11]:image/datavisual2.jpg
 
-- Data Visualization Website
+# Data Visualization Website
 
 -- [Economist Graphic Detail](http://www.economist.com/blogs/graphicdetail/)
 
@@ -400,7 +407,7 @@ sapply(anscombe,var)
 [13]:image/economist2.png
 
 
-- Data Visualization Chart
+# Data Visualization Chart
 
 -- Apple Products Timeline
 
