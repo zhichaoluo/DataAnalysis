@@ -56,6 +56,7 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 
 注：本学期的课件相比之前几乎全部重新编写，加强以真实项目训练为导向，提升学生动手能力和独立解决问题能力，而不是单纯的知识点学习。
 
+
 # 课程教材
 
 - R In Action, Data Analysis and Graphics with R
