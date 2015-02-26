@@ -34,7 +34,7 @@ newkey
 - 问卷：
 
 
-$\pagebreak$
+
 
 
 # 注意事项
@@ -45,7 +45,7 @@ $\pagebreak$
 
 - 尽量坐在前排，如果你想学习
 
-$\pagebreak$
+
 
 # 课程将给你什么？
 
@@ -60,7 +60,7 @@ $\pagebreak$
 - 掌握常用的统计（数据科学）模型和方法
 
 - 以上的收获将基于你的坚持与付出
-$\pagebreak$
+
 
 # 课程教材
 
@@ -69,7 +69,7 @@ $\pagebreak$
 - ggplot2: Elegant Graphics for Data Analysis by Hadley Wickham
 
 
-$\pagebreak$
+
 
 
 # 辅助阅读材料
@@ -85,7 +85,7 @@ $\pagebreak$
 - An Introduction to R by Bill Venables & David Smith
 
 - R for Programmers by Norman Matloff
-$\pagebreak$
+
 
 
 # 课程主要大纲
@@ -125,7 +125,7 @@ $\pagebreak$
 
 -- 交互式绘图
 
-$\pagebreak$
+
 
 
 # 前修知识
@@ -134,7 +134,7 @@ $\pagebreak$
 
 - 计算机一、二级
 
-$\pagebreak$
+
 
 
 # 推荐网站
@@ -163,7 +163,7 @@ $\pagebreak$
 
 - http://www.kdnuggets.com/
 
-$\pagebreak$
+
 
 
 # 推荐软件
@@ -178,7 +178,7 @@ $\pagebreak$
 
 - UltraEdit
 
-$\pagebreak$
+
 
 # 和数据有关的一些背景知识
 
@@ -224,7 +224,7 @@ Step      | Data Analysis           | Cooking
 [5]:image/xiaoye05.png 
 
 
-$\pagebreak$
+
 
 ## 数据分析的三项基本技能
 
@@ -234,7 +234,7 @@ $\pagebreak$
 
 - 统计理论及业务经验
 
-$\pagebreak$
+
 
 ## 统计学VS数据分析VS数据科学
 
@@ -250,7 +250,7 @@ $\pagebreak$
 
 数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程（百度百科）
 
-$\pagebreak$
+
 
 - 数据科学家
 
@@ -258,7 +258,7 @@ $\pagebreak$
 
 一个数据科学家不能只擅长数字(这种人被称为统计学家或分析师)，也要能够理解业务：什么样的数据或结果才是有参考性的;能够找到新的数据集并为其创造新产品;然后能够让CEO们理解这一切。这是一个艰巨的任务，这个世界上这类人是很少的。作为顶尖的数据科学家，不要求他们对环境做出什么积极的改变，但是需要他们尝试做一些真正先进的东西，帮助大家更好的解决业务上的问题。
 
-$\pagebreak$
+
 
 - 数据科学家的六种能力：
 1.对数据的提取与综合能力；
@@ -274,14 +274,14 @@ $\pagebreak$
 3.图形设计学：显示数据结果，比如将数据表达成三维图形，以便更好地理解和利用
 4.人机交互学：在用户和数据之间建立有机联系，使得人对数据的使用更方便
 
-$\pagebreak$
+
 
 ![Data Science Venn Diagram][0]
 
 [0]: image/Data_Science_Venn_Diagram.png 
 
 
-$\pagebreak$
+
 
 
 ## 真实数据
@@ -309,7 +309,7 @@ $\pagebreak$
 
 
 
-$\pagebreak$
+
 
 
 ## Anscombe Data List
@@ -338,7 +338,7 @@ sapply(anscombe,var)
 
 [8]:image/anscombeplot.png 
 
-$\pagebreak$
+
 
 
 
@@ -354,7 +354,7 @@ $\pagebreak$
 
 [9]:image/simpsonparadox.png 
 
-$\pagebreak$
+
 
 ## 数据可视化
 
@@ -412,7 +412,7 @@ $\pagebreak$
 [15]:image/yourgraphic.png
 
 
-$\pagebreak$
+
 
 # 课后练习
 
@@ -424,7 +424,7 @@ $\pagebreak$
 
 - 下载课件及相关教材
 
-$\pagebreak$
+
 
 
 # 每周“大牛”
