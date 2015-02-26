@@ -1,0 +1,9 @@
+"DeathPen","Defendant","Victim","Freq"
+"yes","white","white",53
+"no","white","white",414
+"yes","black","white",11
+"no","black","white",37
+"yes","white","black",0
+"no","white","black",16
+"yes","black","black",4
+"no","black","black",139
