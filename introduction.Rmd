@@ -28,7 +28,7 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 
 - Git：http://www.github.com/zhichaoluo/DataAnalysis/
 
-- 课件：http://pan.baidu.com/s/1qWv6NY8 密码: lt3l
+- 课件：http://pan.baidu.com/s/1qWv6NY8 
 
 # 注意事项
 
@@ -76,6 +76,8 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 - An Introduction to R by Bill Venables & David Smith
 
 - R for Programmers by Norman Matloff
+
+- The Art of R Programming by Norman Matloff
 
 
 
@@ -182,6 +184,7 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 - 熟练掌握数据分析技能会使你在工作学习中成为“香馍馍”
 
 - 养成数据分析思维
+
 
 #数据分析如烹小鲜
 
@@ -326,7 +329,7 @@ Step      | Data Analysis           | Cooking
 anscombe
 
 ```
-
+思考：这样的数据表达方式是否有效
 # Anscombe Data Mean 
 
 ```{r anscombe mean, echo=FALSE}
@@ -345,9 +348,6 @@ sapply(anscombe,var)
 ![Anscombe data plot][8]
 
 [8]:image/anscombeplot.png 
-
-
-
 
 
 # 辛普森悖论
@@ -420,7 +420,43 @@ sapply(anscombe,var)
 [15]:image/yourgraphic.png
 
 
+# 为什么是useR?
 
+- S语言的理念，用它的发明者John Chambers的话说就是“to turn ideas into software, quickly and faithfully
+
+-  John Chambers 是这样对 R 语言是定义的
+
+-- An interface to computational procedures of many kinds;
+
+-- Interactive, hands-on in real time;
+
+-- Functional in its model of programming;
+
+-- Object-oriented, “everything is an object”;
+
+-- Modular, built from standardized pieces;
+
+-- Collaborative, a world-wide, open-source effort.
+
+#关于R的前世今生的几篇文章
+
+- 刘思喆，[R You Ready?——大数据时代下优雅、卓越的统计分析及绘图环境](http://cos.name/2012/05/r-you-ready/)
+
+- 谢益辉，郑冰(2008). [R 语言的历史背景、发展历程和现状](http://cos.name/wp-content/uploads/2008/12/the-history-of-r-language-and-current-developments.ppt). 1st China R Conference 
+
+# SAS和R的比较分析
+
+- 谢益辉在统计之都的[这篇文章](http://cos.name/2010/05/from-clt-simulation-to-normal-distribution/)后面的评论记录了SAS和R用户的一场口水战
+
+-胡江堂有两篇[Think SAS(二)](http://cos.name/2010/04/think-sas-1/)[Think SAS(二)](http://cos.name/2010/12/think-sas-2/)值得读读
+
+# R的学习曲线为什么陡峭
+
+- 太灵活、选择太多
+
+- 需要一定编程基础
+
+- 真正陡峭的是后面的统计知识基本功（因为它的诞生本身就是用于统计研究）
 
 # 课后练习
 
@@ -440,3 +476,4 @@ sapply(anscombe,var)
 - Sir Ronald Aylmer Fisher FRS (1890-1962) was an English statistician, evolutionary biologist, geneticist, and eugenicist. Fisher is known as one of the chief architects of the neo-Darwinian synthesis, for his important contributions to statistics, including the analysis of variance (ANOVA), method of maximum likelihood, fiducial inference, and the derivation of various sampling distributions, and for being one of the three principal founders of population genetics. Anders Hald called him "a genius who almost single-handedly created the foundations for modern statistical science", while Richard Dawkins named him "the greatest biologist since Darwin".
 
 
+#lt3l
