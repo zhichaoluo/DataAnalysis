@@ -1,7 +1,7 @@
 ---
 title: " Data Analysis Using R: Chapter01"
 author: 
-- 罗智超
+- 罗智超(ROKIA.ORG)
 documentclass: ctexart
 output:
   pdf_document:

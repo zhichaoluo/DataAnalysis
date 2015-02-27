@@ -1,0 +1,87 @@
+---
+title: " Data Analysis Using R: Chapter02"
+author: 
+- 罗智超(ROKIA.ORG)
+documentclass: ctexart
+output:
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+    number_sections: yes
+    template: !expr rticles::ctex_template()
+    toc: no
+classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
+---
+
+# 通过本章你将学会
+
+- 通过案例了解R语言的基本特点
+
+# R语言自带数据
+
+- R里面自带了很多数据集，这样方便研究人员验证算法
+
+- 通过data()可以查阅所有数据集名称
+
+- 通过data(package="packagename")来查阅R包里面自带的数据集名称
+
+# Anscombe数据
+
+- 1973年，统计学家F.J. Anscombe在[Graphs in Statistical Analysis](http://www.jstor.org/stable/2682899)构造出了四组奇特的数据。它告诉人们，在分析数据之前，描绘数据所对应的图像有多么的重要。
+
+- 本章通过对R自带的的Anscombe数据进行简单的处理，让同学了解R语言的基本特征
+
+# 查看数据集
+```{r}
+anscombe
+summary(anscombe)
+```
+
+- 看看数据集的结构有什么特征
+
+- 计算下各个变量的统计值
+
+- 基本绘图
+
+#什么是tidy数据格式
+
+- Hadley发表在Journal of statistical software上的文章[Tidy Data](http://www.jstatsoft.org/v59/i10/paper)
+
+- 该文章的源码[地址](https://github.com/hadley/tidy-data)
+
+- 宽数据VS窄数据
+
+# tidy data Rule
+
+- Each variable forms a column.
+
+- Each observation forms a row.
+
+- Each type of observational unit forms a table.
+
+
+#如何更改Anscombe数据的格式
+
+- 方法一（R BASE函数）
+
+- 方法二（library(dplyr)）
+
+- 方法三 （循环）
+
+- 方法四（library(reshape2)）
+
+#如何绘图
+
+- 方法一（基于原始数据格式）
+
+- 方法二（基于tidy数据格式）
+
+#代码分析
+
+- [anscombe.r](https://github.com/zhichaoluo/DataAnalysis/blob/master/Anscombe.R)
+
+
+
+
+
+
