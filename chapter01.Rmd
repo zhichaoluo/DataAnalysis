@@ -1,0 +1,119 @@
+---
+title: " Data Analysis Using R: Chapter01"
+author: 
+- 罗智超
+documentclass: ctexart
+output:
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+    number_sections: yes
+    template: !expr rticles::ctex_template()
+    toc: no
+classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
+---
+
+# 通过本章你将学会
+
+- 配置你的工作环境
+
+- 安装常用的R包
+
+- 掌握RSTUDIO的基本功能
+
+- 掌握git代码管理功能
+
+
+#安装R
+
+- 安装R环境
+
+-- www.r-project.org
+
+- 安装R应用包
+
+-- 选择CRAN镜像（为厦大而骄傲，居然为中国高校中为数不多的几个镜像之一）
+
+-- github
+
+要想在CRAN上面发布一个包难度类似发表一篇一类核心的文章，因此，Hadley开发了一个devtools包），这样任何人都可以将自己开发的包上传到github上面，供别人下载安装
+
+```{r,eval=FALSE}
+#安装rticles包
+library(devtools)
+devtools::install_github("rstudio/rticles")
+
+```
+
+-- sourceforge
+
+- [如何查看R包源代码](http://rokia.org/?p=332)
+
+
+
+#安装RSTUDIO
+
+- 操作演示
+
+#安装GIT
+
+- 操作演示
+
+
+#配置RSTUDIO+GIT+GITHUB
+
+- 详见[配置指南](http://rokia.org/?p=315)
+
+#安装CTEX
+
+- 操作演示
+
+#RSTUDIO功能介绍
+
+- 操作演示
+
+#RSTUODIO+GITHUB代码管理
+
+- 操作演示
+
+#关于R工作空间管理的一些基础函数
+
+```{r,eval=FALSE}
+#注意：R是区分大小写，R里面的目录要用反斜杠/或者\\
+getwd()
+setwd()
+ls()
+rm()
+options(digits=3)
+save.image("filename")
+```
+
+#常用的R包
+```{r,eval=FALSE}
+google+top 100 r packages 
+dplyr
+ggplot2
+lubridate
+stringr
+reshape2
+RColorBrewer
+zoo
+xts
+scales
+car
+knitr
+RODBC
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
