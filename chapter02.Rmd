@@ -17,6 +17,10 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 
 - 通过案例了解R语言的基本特点
 
+- 了解数据集的结构
+
+- 通过案例了解简单回归代码
+
 # R语言自带数据
 
 - R里面自带了很多数据集，这样方便研究人员验证算法
@@ -42,6 +46,14 @@ summary(anscombe)
 - 计算下各个变量的统计值
 
 - 基本绘图
+
+#数据集的基本元素
+
+- 变量（variable name）
+
+- 记录（column name）
+
+- 变量类型（数值、字符、因子）
 
 #什么是tidy数据格式
 
@@ -79,6 +91,28 @@ summary(anscombe)
 #代码分析
 
 - [anscombe.r](https://github.com/zhichaoluo/DataAnalysis/blob/master/Anscombe.R)
+
+
+#扩展案例
+
+- 考试成绩的回归分析
+
+```{r,eval=FALSE,echo=FALSE}
+#模拟成绩数据集
+x1<-rnorm(100,60,10)
+x2<-rnorm(100,70,5)
+x3<-rnorm(100,50,20)
+score<-data.frame(x1,x2,x3)
+#回归分析
+lma<-lm(score[,2]~score[,1])
+lmb<-lm(score$x2~score$x1)
+attributes(lma)
+lma$coef
+lma
+summary(lma)
+lmb<-lm(score$x2~score$x1+score$x3)
+
+```
 
 
 

@@ -1,0 +1,515 @@
+---
+title: ' Data Analysis Using R: Chapter03'
+author: "罗智超(ROKIA.ORG)"
+documentclass: ctexart
+output:
+  html_document:
+    toc: no
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+    number_sections: yes
+    template: C:/Users/roki/Documents/R/win-library/3.1/rticles/rmarkdown/templates/ctex/resources/default.latex
+    toc: no
+classoption: hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`
+---
+
+# 通过本章你将学会
+
+- R的基本数据类型（向量、矩阵、数组、数据框、列表、因子）
+
+- R的基本数据类型的创建
+
+- R的基本数据类型之间的转换
+
+#R的基本数据类型
+
+![R的基本数据类型][01]
+
+[01]: image/datastructure.png "Title"
+
+- R的数据类型的多样性是把双刃剑，由于多样所以灵活，由于灵活，所以掌握难度较大
+
+- 掌握好向量的基本功是掌握其他数据类型的基础，数据框(dataframe)是最常用的一种类型
+
+
+#标量scalar
+
+- 只包含一个元素的向量，用于保存常量
+
+```{r,eval=FALSE,echo=TRUE}
+a<-5
+b<-"hello"
+c<-TRUE
+```
+
+- NA与NULL的区别
+
+-- 在R中NA表示为缺失值，NULL表示为不存在的值,NULL是特殊的对象，它没有模式mode
+
+```{r,eval=FALSE,echo=TRUE}
+x<-c(88,NA,12,178,13)
+mean(x)
+mean(x,na.rm=T)
+length(x)
+
+x<-c(88,NULL,12,178,13)
+mean(x)
+length(x)
+```
+
+-- NULL的一个用法是在循环中创建向量，其中每次迭代都在这个向量上增加一个元素
+
+```{r,eval=FALSE,echo=FALSE}
+z<-NULL
+for(i in 1:10){if(i%%2==0)z<-c(z,i)}
+z
+
+z<-NA
+for(i in 1:10){if(i%%2==0)z<-c(z,i)}
+z
+
+```
+
+#向量vector
+
+- 用于存储数值、字符或者逻辑数据的一维**数组**
+
+- 向量的创建和索引是非常重要的基本功
+
+- 正是R的向量运算功能使其效率极高
+
+```{r,eval=FALSE,echo=TRUE}
+# a numeric vector 
+a <- c(1, 2, 5, 3, 6, -2, 4) 
+# a character vector 
+b <- c("one", "two", "three") 
+# a logic vector 
+c <- c(TRUE, TRUE, TRUE, FALSE, TRUE, FALSE) 
+attributes(c)
+
+```
+
+
+#使用seq()、rep()创建向量
+```{r,eval=FALSE,echo=TRUE}
+
+x<-seq(from=12,to=30,by=3)
+for (i in 1:length(x)){print(x[i])}
+
+#重复常数
+x <- rep(8,4)
+rep(c(5,12,13),3)
+rep(1:3,2)
+rep(c(5,12,13),each=2)
+
+paste("x",1:5,sep="")
+
+```
+
+# 增加或删除向量元素
+```{r,eval=FALSE,echo=TRUE}
+x <- c(88,5,12,13)
+x <- c(x[1:3],168,x[4]) 
+x <- c(x[-c(1,2)])
+
+```
+
+#获得向量长度
+```{r,eval=FALSE,echo=TRUE}
+x <- c(1,2,4)
+length(x)
+#遍历向量
+for (i in 1:length(x)){
+    x[i]    
+}
+```
+
+#向量索引
+
+```{r,eval=FALSE,echo=TRUE}
+
+y <- c(1.2,3.9,0.4,0.12)
+y[c(1,3)] # extract elements 1 and 3 of y
+y[2:3]
+v <- 3:4
+y[v]
+
+#Note that duplicates are allowed
+x <- c(4,2,17,5)
+y <- x[c(1,1,3)]
+
+y[-1]-y[-length(y)]
+```
+
+#all()及any()的使用
+
+```{r,eval=FALSE,echo=TRUE}
+x <- 1:10
+any(x > 8)
+all(x > 88)
+all(x > 0)
+```
+
+#扩展案例
+```{r,eval=FALSE,echo=TRUE}
+#Suppose that we are interested in finding runs of consecutive 1s
+#in vectorsthat consist just of 1s and 0s. 
+findruns1 <- function(x,k) {
+   n <- length(x)
+   runs <- vector(length=n)
+   count <- 0
+   for (i in 1:(n-k+1)) {
+      if (all(x[i:(i+k-1)]==1)) {
+         count <- count + 1
+         runs[count] <- i
+      }
+   }
+   if (count > 0) {
+      runs <- runs[1:count]
+   } else runs <- NULL
+   return(runs)
+}
+y<- c(1,0,0,1,1,1,0,1,1)
+
+findruns1(y,2)
+
+
+```
+
+#向量运算
+
+```{r,eval=FALSE,echo=TRUE}
+u<-c(5,2,8)
+v<-c(1,3,9)
+u>v
+
+z <- c(5,2,-3,8)
+w <- z[z*z > 8]
+
+x <- c(1,3,8,2,20)
+x[x > 3] <- 0
+x
+```
+
+#向量过滤
+```{r,eval=FALSE,echo=TRUE}
+#subset(dataset,subset,select=c())
+x <- c(6,1:3,NA,12)
+x[x > 5]
+y<-subset(x,x > 5)
+
+```
+
+#向量位置选择
+```{r,eval=FALSE,echo=TRUE}
+z <- c(5,2,-3,8)
+which(z*z > 8)
+
+```
+
+```{r,eval=FALSE,echo=TRUE}
+#寻找向量中第一个等于1的位置
+first1 <- function(x) {
+    for (i in 1:length(x)) 
+        {if (x[i] == 1) break # break out of loop
+         }
+    return(i)
+    }
+#另外一种方法
+first1a <- function(x) return(which(x == 1)[1])
+```
+
+
+# 使用ifelse() 函数
+
+```{r,eval=FALSE,echo=TRUE}
+
+x <- 1:10
+y <- ifelse(x %% 2 == 0,5,12) # %% is the mod operator
+```
+
+#向量元素比较
+```{r,eval=FALSE,echo=TRUE}
+# Compare whether two datasets are same and 
+# which array indics is different.
+a1<-c(1,3,4,5,6)
+a2<-c(1,3,7,8,7)
+which(a1!=a2,arr.ind = TRUE)
+
+#identical比较的是完全一样
+identical(x,y)
+# :产生的是整数，c()产生的是浮点数
+x<-1:2
+y<-c(1,2)
+identical(x,y)
+
+
+```
+
+#向量元素命名
+
+```{r,eval=FALSE,echo=TRUE}
+x <- c(1,2,4)
+names(x) <- c("a","b","ab")
+x["b"]
+
+```
+
+#扩展案例
+
+```{r,echo=TRUE,eval=FALSE}
+#Kendall's 相关计算
+#方法一
+findud<-function(v){
+  vud<-v[-1]-v[-length(v)]
+  return(ifelse(vud>0,1,-1))
+}
+udcorr<-function(x,y)
+  ud<-laply(list(x,y),findud)
+return(mean(ud[[1]]==ud[[2]]))
+
+#方法二
+udcorr<-function(x,y) mean(sign(diff(x))==sign(diff(y)))
+
+```
+
+#扩展案例
+- 对鲍鱼数据重新编码
+```{r,echo=TRUE,eval=FALSE}
+#ifelse可以嵌套使用
+#for()循环可以对字符串向量进行循环，甚至文件名
+g<-c("M","F","F","I","M","M","F")
+ifelse(g=="M",1,ifelse(g=="F",2,3))
+m<-which(g=="M")
+f<-which(g=="M")
+i<-which(g=="M")
+grps<-list()
+for(gen in c("M","F","I")) grps[[gen]]<-which(g==gen)
+
+```
+
+
+#矩阵matrix
+
+- 矩阵是二维**数组**，每个元素具有相同模式(mode)
+
+- 通过matrix()函数创建
+
+
+```{r,eval=FALSE,echo=TRUE}
+# create a 2 x 2 matrix with labels 
+# fill in the matrix by rows 
+cells <- c(1,26,24,68) 
+rnames <- c("R1", "R2") 
+cnames <- c("C1", "C2") 
+mymatrix <- matrix(cells, nrow=2, ncol=2, 
+                   byrow=TRUE,dimnames=list(rnames, cnames))  
+mymatrix
+```
+
+
+#矩阵的存储
+
+- 默认按列存储，即先存第一列，然后依次。
+
+```{r,eval=FALSE,echo=TRUE}
+m1 <- matrix(c(1,2,3,4,5,6),nrow=2)
+m2 <- matrix(c(1,2,3,4,5,6),nrow=2,byrow=T)
+
+```
+
+#矩阵运算
+```{r,eval=FALSE,echo=TRUE}
+y<- matrix(c(1:4),nrow=2)
+# mathematical matrix multiplication
+y %*% y 
+# mathematical multiplication of matrix by scalar
+3*y 
+# mathematical matrix addition
+y+y 
+
+```
+
+#矩阵索引
+
+- y[行,列]
+
+- apply(m,dimcode,f,fargs)
+
+- tapply()
+
+- lapply()
+
+- sapply()
+
+# 练习
+
+- 计算airquality各行、列的均值
+
+```{r,echo=FALSE,eval=FALSE}
+a1<-airquality
+apply(a1[1:3],2,mean,na.rm=TRUE)
+apply(a1[1:3],1,mean,na.rm=TRUE)
+mean(a1[,1],na.rm=TRUE)
+```
+
+
+#数组array
+
+-数组与矩阵类似，但维度可以大于2
+
+- 由array(vetcor,dimensions,dimnames)创建
+
+
+```{r,eval=FALSE,echo=TRUE}
+
+dim1 <- c("A1", "A2") 
+dim2 <- c("B1", "B2", "B3")
+dim3 <- c("C1", "C2", "C3", "C4")
+z <- array(1:24, c(2,3,4), dimnames=list(dim1,dim2,dim3)) 
+z 
+
+```
+
+#数据框dataframe
+
+- 数据框是最常用的数据类型，类似于SAS里面的dataset
+
+- 数据框是特殊的List
+
+- 不同的列可以包含不同的模式（数值、字符、逻辑、因子）
+
+- 由data.frame(col1,col2,col3,...)创建
+
+
+```{r,eval=FALSE,echo=TRUE}
+
+patientID <- c(1, 2, 3, 4) 
+age <- c(25, 34, 28, 52) 
+diabetes <- c("Type1", "Type2", "Type1", "Type1")
+status <- c("Poor", "Improved", "Excellent", "Poor")
+patientdata <- data.frame(patientID, age, diabetes,
+                          status,stringsAsFactors=FALSE)
+patientdata 
+
+```
+
+
+
+- 数据框元素索引
+
+```{r,eval=FALSE,echo=TRUE}
+
+patientdata[[1]]
+patientdata[,1]
+
+patientdata$patientID
+
+attach(patientdata)
+patientID
+detach(patientdata)
+
+```
+
+# 数据框元素提取
+
+```{r,eval=FALSE,echo=TRUE}
+examsquiz[2:5,]
+examsquiz[2:5,2]
+examsquiz[2:5,2,drop=FALSE]
+examsquiz[examsquiz$Exam.1 >= 3.8,]
+subset(examsquiz,Exam.1 >= 3.8)
+```
+
+#缺失值处理 complete.cases()
+
+ 
+```{r,eval=FALSE,echo=TRUE}
+library(mice) 
+#mice :Multivariate Imputation by Chained Equations
+
+d5 <- d4[complete.cases(d4),]
+# na.rm=TRUE in function
+
+```
+
+#合并数据集
+```{r,eval=FALSE,echo=TRUE}
+merge(d1,d2,by.x="kids",by.y="pals")
+#cbind
+#rbind
+
+
+```
+
+#累加数据集
+
+
+#使用apply系列
+- lapply和sapply也可以用在apply上
+
+#library(data.table)
+
+- 来源于data.frame，但是运算速度更快
+
+```{r,eval=FALSE,echo=TRUE}
+library(data.table)
+df<- data.table()
+
+```
+#扩展案例
+
+```{r,eval=FALSE,echo=TRUE}
+#应用Logistic模型
+aba <- read.csv("data/abalone.data",header=T)  
+abamf <- aba[aba$Gender != "I",]  # exclude infants from the analysis
+lftn <- function(clmn) {
+   glm(abamf$Gender ~ clmn, family=binomial)$coef  
+}
+loall <- sapply(abamf[,-1],lftn)  
+
+```
+
+#列表list
+- list是最复杂的数据类型
+
+- list可以包含之前提到的所有数据类型及list自己
+
+- 由mylist <- list(object1, object2, ...) 创建
+
+```{r,eval=FALSE,echo=TRUE}
+
+g <- "My First List" 
+h <- c(25, 26, 18, 39) 
+j <- matrix(1:10, nrow=5)
+k <- c("one", "two", "three") 
+mylist <- list(title=g, ages=h, j, k) 
+x<-(mylist[[2]])
+(x)
+#Sparse Matrix
+#Return Parameters
+```
+
+# List 索引
+
+```{r,eval=FALSE,echo=TRUE}
+lst$c
+lst[["c"]]
+lst[[i]] #where i is the index of c within lst
+
+```
+
+#在list上应用函数
+
+- lapply()返回结果也是list
+
+- sapply() 返回结果是向量或者矩阵
+
+
+
+
+#因子factor
+
+
+
