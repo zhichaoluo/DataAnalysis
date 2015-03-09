@@ -85,41 +85,6 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 
 # 课程主要大纲
 
-- R语言基础
-
-- 数据处理
-
--- 数据获取
-
--- 数据整理
-
-- 数据分析方法
-
--- 描述统计分析
-
--- 回归分析
-
--- 方差分析
-
--- 重抽样与自助法
-
--- 广义线性模型
-
--- 主成分和因子分析
-
--- 贝叶斯分类器
-
-
-- 数据可视化
-
--- 基础绘图
-
--- 中级绘图
-
--- 高级绘图
-
--- 交互式绘图
-
 
 # 前修知识
 
@@ -208,6 +173,31 @@ Step      | Data Analysis           | Cooking
 
 最主要的差别是煮完菜要洗碗
 
+#数据分析的流程
+-  Define the question
+
+-  Define the ideal data set
+
+-  Determine what data you can access
+
+-  Obtain the data
+
+-  Clean the data
+
+-  Exploratory data analysis
+
+-  Statistical prediction/modeling
+
+-  Interpret results
+
+-  Challenge results
+
+-  Synthesize/write up results
+
+-  Create reproducible code
+
+
+
 #寿司之神-小野二郎
 
 追求极致的工匠精神
@@ -250,6 +240,41 @@ Step      | Data Analysis           | Cooking
 - 统计理论及业务理解能力
 
 
+#数据分析的问题类型
+
+- 描述（Descriptive）
+
+- 探索（Exploratory）
+
+- 推断（Inferential）
+
+- 预测（Predict）
+
+- 因果（Casual）
+
+- 机理（Mechanistic）
+
+#数据的来源
+
+- 普查
+
+- 抽样调查
+
+- 试验设计
+
+#数据载体
+
+-  Tab-delimited text
+
+-  Comma-separated text
+
+-  Excel file
+
+-  JSON File 
+
+-  HTML/XML file
+
+-  Database
 
 # 统计学VS数据分析VS数据科学
 
@@ -472,9 +497,19 @@ sapply(anscombe,var)
 
 - 多看别人代码
 
+#如何寻找帮助
+
+- R帮助文档
+
+- stackoverflow.com
+
+- stats.stackexchange.com/
+
+- google/baidu
+
 # 课后练习
 
-- 填写课程调查问卷
+- 评估下自己的R语言水平[测验](http://www.biostat.jhsph.edu/~rpeng/coursera/selfquiz/)
 
 - 登陆QQ群
 
