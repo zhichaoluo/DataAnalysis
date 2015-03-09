@@ -45,7 +45,19 @@ devtools::install_github("rstudio/rticles")
 
 ```
 
--- sourceforge
+-- R-forge
+```{r,eval=FALSE,echo=TRUE}
+install.packages("quantmod", repos = "http://R-Forge.R-project.org")
+install.packages("TTR", repos = "http://R-Forge.R-project.org")
+install.packages("FinancialInstrument", repos = "http://R-Forge.R-project.org")
+install.packages("blotter", repos = "http://R-Forge.R-project.org")
+install.packages("quantstrat", repos = "http://R-Forge.R-project.org")
+
+install.packages("PerformanceAnalytics", dependencies=TRUE)
+install.packages("xts", dependencies=TRUE)
+
+
+```
 
 - [如何查看R包源代码](http://rokia.org/?p=332)
 
@@ -103,6 +115,8 @@ scales
 car
 knitr
 RODBC
+RJDBC
+RSQLite
 
 ```
 
