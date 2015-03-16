@@ -1,5 +1,5 @@
 ---
-title: " Data Analysis Using R: Chapter01"
+title: " Data Analysis Using R: Chapter02"
 author: 
 - 罗智超(ROKIA.ORG)
 documentclass: ctexart
@@ -59,7 +59,56 @@ install.packages("xts", dependencies=TRUE)
 
 ```
 
-- [如何查看R包源代码](http://rokia.org/?p=332)
+# [如何查看R包源代码](http://rokia.org/?p=332)
+
+- 简单的函数（非类函数），直接在R里面输入函数名就可以查看源代码,注意函数名后面不要加() 在命令行输入：help和help()的结果不一样，前者显示help函数的源代码，后者显示help()的帮助文档
+
+- 对于类函数，直接输入函数名不能显示出源代码，例如：
+
+```{r,echo=FALSE,eval=FALSE}
+
+summary 
+
+function (object, ...) 
+UseMethod("summary") 
+
+#这时候需要用到methods() 函数，用法methods(FunctionName)如下： 
+
+#> methods(summary)
+#[1] summary.aov summary.aovlist summary.aspell*
+#[4] summary.connection summary.data.frame summary.Date 
+#[7] summary.default summary.ecdf* summary.factor 
+#………… 
+
+Non-visible functions are asterisked 加星号标注的是不可见的方法，也就是说使用summary.prcomp是不能看到源代码的。 
+
+找到这个类函数里面你所关注的函数，输入函数名，回车，就可以查看代码了，如：
+
+> summary.aovlist 
+
+对于非类函数使用methods会报出错误： 
+
+> methods("sample") 
+[1] sample.int 
+Warning message:
+ In methods("sample") : function 'sample' appears not to be generic 
+
+对于具体的函数，要搞懂它，可能看这些信息还不够，需要下载*.tar.gz，查看里面的源代码。这时候linux下的find命令就非常有用，具体可以问问谷哥和度娘。 
+
+- 直接上CRAN 下载源代码包。对于加星号标注的是不可见的方法 流程如下： 
+
+(1) 登入R主页 http://www.r-project.org/ ，点击 Download 下的CRAN 
+
+(2) 选择一个镜像 
+
+(3) 里面的Source Code for all Platforms就可以下载各种源码了，下面以下载程序包源码包为例，点packages 
+
+(4) 选择sorted的方式，推荐by name 
+
+(5) 找到你感兴趣的包，比如abind，点进去就可以看见Package source这一项，用tar.gz封装的，download就可以了，解压后就能看见源码了。一般源码都在R目录里面。 
+
+
+```
 
 
 
@@ -76,11 +125,50 @@ install.packages("xts", dependencies=TRUE)
 
 - 详见[配置指南](http://rokia.org/?p=315)
 
+（1）注册GIT账号
+
+（2）创建一个repository：DataAnalysis
+
+（3）下载git、rstudio 并安装
+
+（4）在rstudio-tools-global options-Git/Svn里面设置git.exe的路径，重启rstudio
+
+（5）打开Git终端配置用户账户信息(注意区分大小写)
+
+
+
+下面三句分别配置用户名、邮件地址以及创建公钥
+
+git config --global user.name "zhichaoluo"
+
+git config --global user.email "zhichao.luo@gmail.com"
+
+ssh-keygen -t rsa -C zhichao.luo@gmail.com
+
+（6）登陆github.com，在Personal settings-SSH keys-Add SHH key，将（6）第三句中创建的key的内容copy进去。
+
+（7）在rstudio中新建project from version control-Git配置第（2）步中创建的repository的地址
+
+git@github.com:zhichaoluo/DataAnalysis.git
+
+有两种传输协议模式https和SSH模式，由于我们在第（5）（6）步骤创建了SHH key所以，我们可以选择这个模式。如果选择https模式，每次提交更新都要提示输入用户名密码，非常麻烦。
+
+有关于Git的详细介绍可以参考下文http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
+
 #安装CTEX
 
 - 操作演示
 
 #RSTUDIO功能介绍
+
+- 参数配置（全局、项目）
+
+- 新建项目
+
+- 文艺编程
+
+- RMARKDOWN
 
 - 操作演示
 
@@ -114,6 +202,7 @@ xts
 scales
 car
 knitr
+
 RODBC
 RJDBC
 RSQLite
