@@ -3,14 +3,7 @@ title: " Data Analysis Using R: Introduction"
 author: 
 - 罗智超(ROKIA.ORG)
 documentclass: ctexart
-output:
-  pdf_document:
-    fig_caption: yes
-    latex_engine: xelatex
-    number_sections: yes
-    template: !expr rticles::ctex_template()
-    toc: no
-classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
+output: slidy_presentation
 ---
 
 # 联系方式
@@ -22,7 +15,7 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 
 - QQ: 1814347
 
-- QQ群:
+- QQ群:167472549
 
 - 博客：http://rokia.org
 
@@ -64,6 +57,8 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 - The Art of R Programming by Norman Matloff 
 
 - ggplot2: Elegant Graphics for Data Analysis by Hadley Wickham
+
+- 统计建模与R软件 by 薛毅 陈立萍
 
 # 辅助阅读材料
 
@@ -124,6 +119,8 @@ classoption: "hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`"
 - http://www.kaggle.com/
 
 - http://www.kdnuggets.com/
+
+- http://en.savefrom.net/
 
 
 
@@ -522,7 +519,14 @@ sapply(anscombe,var)
 
 # 每周“大牛”
 
-- Sir Ronald Aylmer Fisher FRS (1890-1962) was an English statistician, evolutionary biologist, geneticist, and eugenicist. Fisher is known as one of the chief architects of the neo-Darwinian synthesis, for his important contributions to statistics, including the analysis of variance (ANOVA), method of maximum likelihood, fiducial inference, and the derivation of various sampling distributions, and for being one of the three principal founders of population genetics. Anders Hald called him "a genius who almost single-handedly created the foundations for modern statistical science", while Richard Dawkins named him "the greatest biologist since Darwin".
+- Sir R.A.Fisher（1890～1962），全名Ronald Aylmer Fisher，生于伦敦，卒于 Adleaide（澳洲）。英国统计与遗传学家，现代统计科学的奠基人之一，并对达尔文进化论作了基础澄清的工作。
 
+- Fisher 以天文学学士毕业于剑桥大学，也因对天文观测误差的分析，使他开始探讨统计的问题。毕业後几年，他曾到加拿大务农，工作于投资公司，也当过私立学校的老师。并在1915，1918发表两篇重要文章，前者探讨相关系数的分布；後者证明遗传上的连续变异，可用许多遵守孟德尔律的基因变异所叠加来解释。他一生在统计和生物的研究兴趣与才华，已经清楚地表现出来。
+
+- 1919年他拒绝在 K. Pearson 下工作，任职于 Rothamsted 农业实验场。他负责的主要工作是植物播殖实验的设计，希望透过尽量少的时间、成本与工作量，得到尽量多的有用资讯；另外是要整理该实验场60年来累积的实验资料。Fisher 在这里发展他的变异数分析理论，研究假说测试，并且提出实验设计的随机化原则，使得科学试验可以同时进行多参数之检测，并减少样本偏差。
+
+- 他在1925所著《研究工作者的统计方法》影响力超过半世纪，遍及全世界。而他在 Rothamsted 的工作结晶，同时也表现在为达尔文演化论澄清迷雾的巨著《天择的遗传理论》(1930)中，说明孟德尔的遗传定律与达尔文的理论并不像当时部份学者认为的互相矛盾，而是相辅相成的。并且认为演化的驱力主要来自选择的因素远重於突变的因素。这本著作将统计分析的方法带入演化论的研究。为解释现代生物学的核心理论打下坚实的基础。也因这本著作，Fisher 1933年获得伦敦大学的职位，从事 RH 血型的研究。
+
+- 1943至1957年他回剑桥大学任教，1952年受封爵士，1956年出版《统计方法与科学推演》，最後三年，则在澳洲为国协科技研究组织 (CSTRO) 工作，并卒於任上。
 
 #lt3l
