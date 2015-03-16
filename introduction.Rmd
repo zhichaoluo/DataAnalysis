@@ -1,9 +1,17 @@
 ---
-title: " Data Analysis Using R: Introduction"
-author: 
-- 罗智超(ROKIA.ORG)
+title: ' Data Analysis Using R: Introduction'
+author: "罗智超(ROKIA.ORG)"
 documentclass: ctexart
-output: slidy_presentation
+output:
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+    number_sections: yes
+    template: C:/Users/roki/Documents/R/win-library/3.1/rticles/rmarkdown/templates/ctex/resources/default.latex
+    toc: no
+  html_document:
+    toc: no
+classoption: hyperref`r if (.Platform$OS.type != 'windows') ',nofonts'`
 ---
 
 # 联系方式
@@ -507,6 +515,18 @@ sapply(anscombe,var)
 # 课后练习
 
 - 评估下自己的R语言水平[测验](http://www.biostat.jhsph.edu/~rpeng/coursera/selfquiz/)
+
+```{r,echo=FALSE,eval=FALSE}
+
+score<-read.delim("clipboard")
+score<-c(8,0,5,4,7,2,10,6,2,2,2,6,9,9,5,2,3,10,6)
+summary(score)
+hist(score,breaks=10,prob=T)
+lines(density(score),lwd=1)
+dev.off()
+shapiro.test(score)
+```
+
 
 - 登陆QQ群
 
