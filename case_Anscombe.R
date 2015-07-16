@@ -47,6 +47,10 @@ d4<-data_frame(
   y<-anscombe[,8],
   type<-"d"
 )
+names(d1) <- c("x", "y", "type")
+names(d2) <- c("x", "y", "type")
+names(d3) <- c("x", "y", "type")
+names(d4) <- c("x", "y", "type")
 d<-rbind(d1,d2,d3,d4)
 
 #方法三
