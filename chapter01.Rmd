@@ -2,6 +2,7 @@
 title: " Data Analysis Using R: Chapter02"
 author: 
 - 罗智超(ROKIA.ORG)
+- 1814347@qq.com
 documentclass: ctexart
 output:
   pdf_document:
@@ -59,26 +60,29 @@ install.packages("xts", dependencies=TRUE)
 
 ```
 
+-- Bioconductor.org
+
+
 # [如何查看R包源代码](http://rokia.org/?p=332)
 
 - 简单的函数（非类函数），直接在R里面输入函数名就可以查看源代码,注意函数名后面不要加() 在命令行输入：help和help()的结果不一样，前者显示help函数的源代码，后者显示help()的帮助文档
 
 - 对于类函数，直接输入函数名不能显示出源代码，例如：
 
-```{r,echo=FALSE,eval=FALSE}
+
 
 summary 
 
 function (object, ...) 
 UseMethod("summary") 
 
-#这时候需要用到methods() 函数，用法methods(FunctionName)如下： 
+这时候需要用到methods() 函数，用法methods(FunctionName)如下： 
 
-#> methods(summary)
-#[1] summary.aov summary.aovlist summary.aspell*
-#[4] summary.connection summary.data.frame summary.Date 
-#[7] summary.default summary.ecdf* summary.factor 
-#………… 
+> methods(summary)
+[1] summary.aov summary.aovlist summary.aspell*
+[4] summary.connection summary.data.frame summary.Date 
+[7] summary.default summary.ecdf* summary.factor 
+………… 
 
 Non-visible functions are asterisked 加星号标注的是不可见的方法，也就是说使用summary.prcomp是不能看到源代码的。 
 
@@ -108,7 +112,7 @@ Warning message:
 (5) 找到你感兴趣的包，比如abind，点进去就可以看见Package source这一项，用tar.gz封装的，download就可以了，解压后就能看见源码了。一般源码都在R目录里面。 
 
 
-```
+
 
 
 
@@ -120,6 +124,7 @@ Warning message:
 
 - 操作演示
 
+# Test Github config
 
 #配置RSTUDIO+GIT+GITHUB
 
@@ -181,7 +186,7 @@ git@github.com:zhichaoluo/DataAnalysis.git
 ```{r,eval=FALSE}
 #注意：R是区分大小写，R里面的目录要用反斜杠/或者\\
 getwd()
-setwd()
+setwd("D:\\RPROJECT\\DataAnalysis\\data")
 ls()
 rm()
 options(digits=3)
@@ -202,6 +207,9 @@ xts
 scales
 car
 knitr
+car
+rmarkdown
+devtools
 
 RODBC
 RJDBC
