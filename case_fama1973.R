@@ -3,8 +3,7 @@ library(haven)
 library(lubridate)
 library(lme4)
 library(dplyr)
-
-#load function
+#raw data download link: http://pan.baidu.com/s/1pLGMsC7
 #data preparation
 df.raw<-read_sas("data/stockreturn.sas7bdat")
 df<-df.raw
@@ -41,7 +40,7 @@ row.names(df.step1)<-NULL
 
 #step2
 
-#test sample data 
+#regression each period and month
 
 df.final<-list()
 for (i in 1:length(tplist)){
