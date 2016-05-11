@@ -23,13 +23,15 @@ iplist<-list(c(1930:1934),c(1934:1938),c(1938:1942),
 tplist<-list(c(1935:1938),c(1939:1942),c(1943:1946),
              c(1947:1950),c(1951:1954),c(1955:1958),
              c(1959:1962),c(1963:1966),c(1967:1968))
-
+#load self define functions
+source("case_fama1973_functions.R")
 
 #Step1
-#regression by each stock, 
+#regression by each period and stock, 
 #then sort the beta of EWRETD
 #cut the beta dataset into 20 group
-source("case_fama1973_functions.R")
+#collect all the groups in different period into df.step1
+
 
 df.step1<-list()
 for (i in 1:length(pplist)){
@@ -41,6 +43,7 @@ row.names(df.step1)<-NULL
 #step2
 
 #regression each period and month
+#get main regression result
 
 df.final<-list()
 for (i in 1:length(tplist)){
@@ -49,4 +52,7 @@ for (i in 1:length(tplist)){
     reg.3(i,j)
       }
 }
-res<-as.data.frame(do.call(rbind,df.final))
+res<-as.data.frame(do.call(rbind,df.final),stringsAsFactors = F)
+
+#Bug list
+
