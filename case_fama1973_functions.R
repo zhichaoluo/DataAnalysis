@@ -4,6 +4,7 @@ clear.reg<-function(df,n){
   c<-subset(d,nr>=n,select=c(PERMNO,nr))
   df<-merge(df,c,by="PERMNO")
 }
+
 reg.pp<-function(timeRange){
   df.t<-subset(df2,YEAR %in% timeRange)
   df.t<-clear.reg(df.t,30) 
@@ -87,6 +88,7 @@ reg.3<-function(i,j){
     lm.3<-lm(RET_m~EWRETD_m+sd_resid_m,data=z)
     tpid=ml.tp[j]
     res.lm3<-c(coef(lm.3),tpid)
+    #return result is factor
     df.final[[tpid]]<<-res.lm3
     print(res.lm3)
   }
