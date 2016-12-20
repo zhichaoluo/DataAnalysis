@@ -5,6 +5,7 @@ clear.reg<-function(df,n){
   df<-merge(df,c,by="PERMNO")
 }
 
+
 reg.pp<-function(timeRange){
   df.t<-subset(df2,YEAR %in% timeRange)
   df.t<-clear.reg(df.t,30) 

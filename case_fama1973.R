@@ -4,6 +4,7 @@ library(lubridate)
 library(lme4)
 library(dplyr)
 
+
 #raw data download link: http://pan.baidu.com/s/1pLGMsC7
 #data preparation
 df.raw<-read_sas("data/stockreturn.sas7bdat")
